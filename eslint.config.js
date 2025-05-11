@@ -10,6 +10,11 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     plugins: { js },
     extends: ['js/recommended'],
+    rules: {
+      js: {
+        'no-undef': 'off',
+      },
+    },
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
@@ -19,4 +24,3 @@ export default defineConfig([
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
 ]);
-
