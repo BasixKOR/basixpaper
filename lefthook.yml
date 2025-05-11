@@ -1,0 +1,15 @@
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+pre-push:
+  jobs:
+    - run: yarn dedupe --check
+      glob: yarn.lock
+pre-commit:
+  parallel: true
+  jobs:
+    - run: yarn eslint --fix {staged_files}
+      glob: '*.{js,ts,jsx,tsx,astro}'
+    - run: yarn prettier --write {staged_files}
+      glob: '*.{js,ts,jsx,tsx,astro}'
